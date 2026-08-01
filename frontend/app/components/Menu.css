@@ -1,0 +1,131 @@
+.menu-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-foreground);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.menu-item-card {
+  background: var(--color-charcoal);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--color-gold);
+}
+
+@media (prefers-color-scheme: light) {
+  .menu-item-card {
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+}
+
+.menu-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.veg-indicator {
+  width: 14px;
+  height: 14px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.veg-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.veg-indicator.veg {
+  border-color: #28a745;
+}
+
+.veg-indicator.veg span {
+  background-color: #28a745;
+}
+
+.veg-indicator.non-veg {
+  border-color: #dc3545;
+}
+
+.veg-indicator.non-veg span {
+  background-color: #dc3545;
+}
+
+.menu-item-name {
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  flex-grow: 1;
+}
+
+.menu-item-desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.menu-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.menu-item-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-playfair);
+}
+
+.menu-add-btn {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
