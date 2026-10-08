@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "./components/Navbar";
 import ReservationForm from "./components/ReservationForm";
 import FeastGallery from "./components/FeastGallery";
 import SocialProof from "./components/SocialProof";
@@ -9,23 +10,8 @@ import "./page.css";
 export default function Home() {
   return (
     <main className="main">
-      {/* Header / Navbar */}
-      <header className="header">
-        <div className="header-container">
-          <Link href="/" className="logo">
-            Al-Nawab
-          </Link>
-          <nav className="nav">
-            <Link href="/menu" className="nav-link">Menu</Link>
-            <Link href="#feast" className="nav-link">The Royal Feast</Link>
-            <Link href="#reservations" className="nav-link">Reservations</Link>
-            <Link href="#contact" className="nav-link">Contact</Link>
-          </nav>
-          <div className="header-actions">
-            <button className="btn-primary">Order Online</button>
-          </div>
-        </div>
-      </header>
+      {/* Dynamic Full-Stack Navbar */}
+      <Navbar activePage="home" />
 
       {/* Hero Section */}
       <section className="hero">

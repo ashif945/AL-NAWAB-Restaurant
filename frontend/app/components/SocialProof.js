@@ -1,8 +1,11 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Star, Camera } from "lucide-react";
+import { reviewService } from "../services/reviewService";
 import "./SocialProof.css";
 
-const REVIEWS = [
+const FALLBACK_REVIEWS = [
   { id: 1, name: "Rahul S.", text: "The best Biryani in Noida, hands down! The meat was tender and the flavors were absolutely royal.", rating: 5 },
   { id: 2, name: "Priya M.", text: "Booked a table for my parents' anniversary. The hospitality was exceptional, and the Galouti Kebabs melted in our mouths.", rating: 5 },
   { id: 3, name: "Vikram K.", text: "Authentic Awadhi taste. The family pack was massive and easily fed our group of 6. Highly recommend!", rating: 5 },
@@ -40,15 +43,38 @@ const ROYAL_DISHES = [
 ];
 
 export default function SocialProof() {
+  const [reviewsList, setReviewsList] = useState(FALLBACK_REVIEWS);
+
+  useEffect(() => {
+    async function loadReviews() {
+      try {
+        const res = await reviewService.getReviews();
+        if (res.success && res.reviews && res.reviews.length > 0) {
+          setReviewsList(
+            res.reviews.map((r) => ({
+              id: r._id,
+              name: r.customerName,
+              text: r.comment,
+              rating: r.rating,
+            }))
+          );
+        }
+      } catch (err) {
+        // use fallbacks gracefully
+      }
+    }
+    loadReviews();
+  }, []);
+
   return (
     <div className="social-proof-container">
       <div className="reviews-section">
         <h3 className="sub-heading">What Our Guests Say</h3>
         <div className="reviews-grid">
-          {REVIEWS.map((review) => (
+          {reviewsList.slice(0, 3).map((review) => (
             <div key={review.id} className="review-card">
               <div className="stars">
-                {[...Array(review.rating)].map((_, i) => (
+                {[...Array(review.rating || 5)].map((_, i) => (
                   <Star key={i} size={16} fill="var(--color-gold)" color="var(--color-gold)" />
                 ))}
               </div>

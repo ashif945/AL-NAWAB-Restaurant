@@ -1,0 +1,133 @@
+.kitchen-screen-container {
+  min-height: 100vh;
+  background: #2b1f1a;
+  color: #fff9f0;
+  padding: 1.5rem 2rem;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.kitchen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(202, 162, 77, 0.4);
+  padding-bottom: 1rem;
+}
+
+.kitchen-header h1 {
+  font-family: var(--font-playfair);
+  color: var(--color-gold);
+  margin: 0;
+  font-size: 2rem;
+}
+
+.kitchen-orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.kitchen-ticket-card {
+  background: #3e2e28;
+  border: 2px solid rgba(202, 162, 77, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kitchen-ticket-card:hover {
+  border-color: var(--color-gold);
+}
+
+.kitchen-ticket-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(202, 162, 77, 0.2);
+}
+
+.kitchen-ticket-header h3 {
+  margin: 0;
+  color: var(--color-gold);
+  font-size: 1.25rem;
+}
+
+.kitchen-time-badge {
+  background: #f97316;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.kitchen-ticket-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kitchen-ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.kitchen-ticket-item:last-child {
+  border-bottom: none;
+}
+
+.kitchen-item-qty {
+  background: var(--color-gold);
+  color: #2b1f1a;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-right: 0.75rem;
+  display: inline-block;
+}
+
+.kitchen-ticket-footer {
+  padding: 1rem 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(202, 162, 77, 0.2);
+}
+
+.kitchen-action-btn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #10b981;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.kitchen-action-btn:hover {
+  background: #059669;
+}
+
+.btn-prepare {
+  background: #f97316;
+}
+
+.btn-prepare:hover {
+  background: #ea580c;
+}
